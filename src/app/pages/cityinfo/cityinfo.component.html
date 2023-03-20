@@ -1,4 +1,4 @@
-<div class="d-flex gap-2 mt-4">
+<div class="d-flex flex-column flex-lg-row gap-2 mt-4">
   <div class="container shadow-lg rounded p-4">
     <div class="d-flex">
       <div class="w-25">
@@ -11,56 +11,41 @@
       <div class="rounded p-2 bg-opacity-25 bg-dark">
         <div class="d-flex w-100 mb-3">
           <h4>{{ cityInfo.name }} | {{ cityInfo.sys.country }}</h4>
-          <button [disabled]="checkFavAndUser()" class="ms-auto size-sm btn btn-dark" (click)="addToFavorites(cityInfo)">❤️</button>
+          <button [disabled]="checkFavAndUser()" class="ms-auto size-sm btn btn-dark"
+            (click)="addToFavorites(cityInfo)">❤️</button>
         </div>
-       
+
         <div class="bg-light rounded px-2">
           Temperature: {{ toCelsius(cityInfo.main.temp) }}
         </div>
         <div class="d-flex flex-wrap">
-          <span class="w-50"
-            >Wind:<span class="text-dark">{{ cityInfo.wind.speed }}</span></span
-          >
-          <span class="w-50"
-            >Feels like:<span class="text-dark">{{
+          <span class="w-50">Wind:<span class="text-dark">{{ cityInfo.wind.speed }}</span></span>
+          <span class="w-50">Feels like:<span class="text-dark">{{
               cityInfo.main.feels_like
-            }}</span></span
-          >
-          <span class="w-50"
-            >temp_min:<span class="text-dark">{{
+              }}</span></span>
+          <span class="w-50">temp_min:<span class="text-dark">{{
               cityInfo.main.temp_min
-            }}</span></span
-          >
-          <span class="w-50"
-            >temp_max:<span class="text-dark">{{
+              }}</span></span>
+          <span class="w-50">temp_max:<span class="text-dark">{{
               cityInfo.main.temp_max
-            }}</span></span
-          >
-          <span class="w-50"
-            >pressure:<span class="text-dark">{{
+              }}</span></span>
+          <span class="w-50">pressure:<span class="text-dark">{{
               cityInfo.main.pressure
-            }}</span></span
-          >
-          <span class="w-50"
-            >humidity:<span class="text-dark">{{
+              }}</span></span>
+          <span class="w-50">humidity:<span class="text-dark">{{
               cityInfo.main.humidity
-            }}</span></span
-          >
-          <span class="w-50"
-            >sea_level:<span class="text-dark">{{
+              }}</span></span>
+          <span class="w-50">sea_level:<span class="text-dark">{{
               cityInfo.main.sea_level
-            }}</span></span
-          >
-          <span class="w-50"
-            >grnd_level:<span class="text-dark">{{
+              }}</span></span>
+          <span class="w-50">grnd_level:<span class="text-dark">{{
               cityInfo.main.grnd_level
-            }}</span></span
-          >
+              }}</span></span>
         </div>
       </div>
     </div>
   </div>
-  <div class="container shadow-lg p rounded p-4">
+  <div class="container w-100 w-lg-50 shadow-lg p rounded p-4">
     <google-map class="rounded" [options]="mapOptions"></google-map>
   </div>
 </div>

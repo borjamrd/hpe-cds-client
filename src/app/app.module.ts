@@ -41,4 +41,4 @@ import { GoogleMapsModule } from '@angular/google-maps'
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

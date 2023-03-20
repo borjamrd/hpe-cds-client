@@ -6,11 +6,12 @@ import { Subject, Observable, BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class CitiesService {
+  url: string = 'http://localhost:3000/cities'
   private cities: string[] =
     JSON.parse(localStorage.getItem('cities') || '[]') || [];
   public cities$ = new BehaviorSubject<string[]>(this.cities);
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getCities() {
     return this.http.get('http://localhost:3000/cities');
