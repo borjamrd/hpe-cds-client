@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="custom-container">
+    <h3 class="text-medium-emphasis">Look for a city's weather</h3>
+
+    <ng-template #rt let-r="result" let-t="term">
+      <ngb-highlight [result]="r.label" [term]="t"></ngb-highlight>
+    </ng-template>
+    <input
+      id="typeahead-basic"
+      type="text"
+      class="form-control"
+      [(ngModel)]="model"
+      [ngbTypeahead]="search"
+      [resultTemplate]="rt"
+      [inputFormatter]="formatter"
+      (ngModelChange)="viewInfo()"
+    />
+    <div class="p-2 d-flex gap-2">
+      <span
+        (click)="deleteFav(fav)"
+        *ngFor="let fav of favCities"
+        class="rounded bg-dark bg-opacity-50 px-2"
+      >
+        {{ fav }}
+      </span>
+    </div>
+  </div>
+
+  <ng-container *ngIf="loadspinner; else modelInfo" class="d-flex p-4">
+    <div class="m-auto">
+      <div class="spinner-border" role="status">
+        <span class="m-auto sr-only"></span>
+      </div>
+    </div>
+  </ng-container>
+  <ng-template #modelInfo>
+    <city-info *ngIf="model?.label" [cityInfo]="selectedCity"></city-info>
+  </ng-template>
+</div>
